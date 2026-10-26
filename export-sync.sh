@@ -4,6 +4,7 @@ echo "[*] Syncing noctalia files..."
 rm -rf noctalia
 mkdir -p noctalia
 noctalia config export full > noctalia/noctalia-full-config.toml
+cp -r $HOME/.config/noctalia noctalia
 
 echo "[*] Syncing mango files..."
 rm -rf mango
