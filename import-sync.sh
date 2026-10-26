@@ -25,9 +25,9 @@ cp -r zsh/.oh-my-zsh/custom/themes $HOME/.oh-my-zsh/custom/
 echo "[*] Syncing ghostty..."
 mkdir -p $HOME/.config/ghostty
 rm -r $HOME/.config/ghostty
-cp -r ghostty $HOME/.config/ghostty
+cp -r ghostty/* $HOME/.config/ghostty
 
 echo "[*] Syncing zed..."
 rm -rf $HOME/.config/zed
 mkdir -p $HOME/.config/zed
-cp -r zed $HOME/.config/zed
+cp -r zed/* $HOME/.config/zed
