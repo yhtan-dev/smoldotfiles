@@ -4,13 +4,14 @@ echo "This will override your current configuration for the following:"
 echo "  ~/.config/mango"
 echo "  ~/.config/ghostty"
 echo "  ~/.config/noctalia"
+echo "  ~/.config/zed"
 echo "  ~/.zshrc"
 echo "  ~/.oh-my-zsh/custom/themes"
 
 read -p "Continue? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
 
 echo "[*] Syncing noctalia files..."
-noctalia config import full < noctalia/noctalia-full-config.toml
+cp noctalia/noctalia-full-config.toml $HOME/.config/noctalia/config.toml
 
 echo "[*] Syncing mango files..."
 mkdir -p $HOME/.config/mango
@@ -24,3 +25,8 @@ cp -r zsh/.oh-my-zsh/custom/themes $HOME/.oh-my-zsh/custom/
 echo "[*] Syncing ghostty..."
 mkdir -p $HOME/.config/ghostty
 cp -r ghostty/* $HOME/.config/ghostty/
+
+echo "[*] Syncing zed..."
+rm -rf $HOME/.config/zed
+mkdir -p $HOME/.config/zed
+cp -r zed $HOME/.config/zed

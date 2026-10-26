@@ -21,3 +21,8 @@ echo "[*] Syncing ghostty..."
 rm -rf ghostty
 mkdir -p ghostty
 cp -r $HOME/.config/ghostty/* ghostty
+
+echo "[*] Syncing zed..."
+rm -rf zed
+mkdir -p zed
+cp -r $HOME/.config/zed zed
