@@ -73,7 +73,7 @@ ZSH_THEME="pocchi"
 plugins=(
   git
   zsh-autosuggestions
-  zsh-syntax-highlighting  
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -109,7 +109,7 @@ alias clioner="ide clion"
 alias riderer="ide rider"
 
 function cdcls() {
-  cd 
+  cd
   clear
 }
 
@@ -136,7 +136,7 @@ alias zshconf="zeditor ~/.zshrc"
 alias mangoconf="zeditor ~/.config/mango"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias ghostconf="zeditor ~/.config/ghostty/"
-
+alias conf="zeditor ~/.config"
 
 alias yay="paru"
 alias cls="clear"
@@ -147,5 +147,3 @@ alias cddown="cd /mnt/meow/downloads"
 alias cddoc="cd /mnt/meow/documents"
 alias cdsrc="cd /mnt/meow/src"
 alias spotify="spotify_player"
-
-

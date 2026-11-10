@@ -24,11 +24,11 @@ order = [ "mybar" ]
     auto_hide = false
     auto_hide_delay_ms = 0
     background_opacity = 1.0
-    border = "outline"
+    border = "outline_variant"
     border_width = 0.0
     capsule = false
     capsule_border_width = 1.0
-    capsule_fill = "surface_variant"
+    capsule_fill = "surface_container"
     capsule_group = []
     capsule_opacity = 1.0
     capsule_padding = 6.0
@@ -67,9 +67,14 @@ order = [ "mybar" ]
     widget_spacing = 6
 
         [bar.mybar.dead_zone]
+        click_through = false
 
 [battery]
 warning_threshold = 10
+
+[bluetooth]
+connect_when_enabled = false
+connection_notifications = false
 
 [brightness]
 enable_ddcutil = true
@@ -87,6 +92,8 @@ refresh_minutes = 5
 
     [calendar.account.personal_google]
     calendars = []
+    client_cert_file = ""
+    client_key_file = ""
     color = ""
     credential_source = "secret-service"
     name = "Personal"
@@ -104,7 +111,9 @@ refresh_minutes = 5
     use_event_reminders = true
 
 [control_center]
+circular_avatar = true
 hidden_tabs = []
+show_avatar_border = true
 show_session_button = true
 show_shortcut_labels = true
 sidebar = "compact"
@@ -112,8 +121,14 @@ sidebar_section = "compact"
 width = 800
 
     [control_center.calendar]
+    hide_past_events = false
+    past_events_threshold_minutes = 30
     show_events_card = true
+    show_events_location = false
     show_week_numbers = true
+
+    [control_center.media]
+    show_visualizer = true
 
     [[control_center.shortcuts]]
     type = "wifi"
@@ -148,8 +163,9 @@ active_opacity = 1.0
 active_scale = 1.0
 auto_hide = false
 background_opacity = 0.87999999523162842
-border = "outline"
+border = "outline_variant"
 border_width = 0.0
+compositor_blur = true
 concave_edge_corners = true
 cross_axis_padding = 8
 enabled = false
@@ -273,19 +289,19 @@ sunset = ""
 allow_empty_password = false
 blur_intensity = 0.5
 blurred_desktop = false
-edge_smoothness = 0.30000001192092896
+edge_smoothness = 0.0
 enabled = true
 fingerprint = true
 grace_period_seconds = 0
 lock_before_suspend = true
 monitors = []
 tint_intensity = 0.30000001192092896
-transition = [ "fade", "wipe", "disc", "stripes", "zoom", "honeycomb" ]
-transition_duration = 1500.0
+transition = [ "zoom" ]
+transition_duration = 800.0
 wallpaper = ""
 
 [lockscreen_widgets]
-enabled = false
+enabled = true
 schema_version = 2
 widget_order = [
     "lockscreen-login-box@DP-3",
@@ -313,7 +329,7 @@ widget_order = [
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@DP-3".settings]
-        background_color = "surface_variant"
+        background_color = "surface_container"
         background_opacity = 0.88
         background_radius = 12.0
         center_password_text = false
@@ -342,7 +358,7 @@ widget_order = [
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
-        background_color = "surface_variant"
+        background_color = "surface_container"
         background_opacity = 0.88
         background_radius = 12.0
         center_password_text = false
@@ -371,7 +387,7 @@ widget_order = [
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@WL-1".settings]
-        background_color = "surface_variant"
+        background_color = "surface_container"
         background_opacity = 0.88
         background_radius = 12.0
         center_password_text = false
@@ -390,17 +406,17 @@ widget_order = [
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
     box_height = 196.0
     box_width = 810.0
-    cx = 854.0
-    cy = 778.0
+    cx = 768.449951171875
+    cy = 777.99993896484375
     enabled = true
     output = "eDP-1"
     placement_height = 960.0
-    placement_width = 1707.0
+    placement_width = 1536.0
     rotation = 0.0
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
-        background_color = "surface_variant"
+        background_color = "surface_container"
         background_opacity = 0.88
         background_radius = 12.0
         center_password_text = false
@@ -429,7 +445,7 @@ widget_order = [
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@eDP-2".settings]
-        background_color = "surface_variant"
+        background_color = "surface_container"
         background_opacity = 0.88
         background_radius = 12.0
         center_password_text = false
@@ -454,7 +470,7 @@ temperature_night = 4000
 [notification]
 background_opacity = 0.97000002861022949
 border = true
-border_color = "outline"
+border_color = "outline_variant"
 border_width = 1.0
 collapse_on_dismiss = true
 enable_daemon = true
@@ -475,7 +491,7 @@ width = 360
 [osd]
 background_opacity = 0.97000002861022949
 border = true
-border_color = "outline"
+border_color = "outline_variant"
 border_width = 1.0
 enabled = true
 follow_focused_output = false
@@ -492,11 +508,13 @@ scale = 1.0
     bluetooth = true
     brightness = true
     caffeine = true
+    custom = true
     dnd = true
     keyboard_backlight = true
     keyboard_layout = true
     lock_keys = true
     media = true
+    media_volume = true
     nightlight = true
     power_profile = true
     privacy = true
@@ -509,7 +527,7 @@ scale = 1.0
 
 [plugins]
 auto_update = "all"
-enabled = [ "prponkshe/mango-displays", "noctalia/bongocat", "nilsonlinux/speedtest-meter" ]
+enabled = [ "prponkshe/mango-displays", "noctalia/bongocat", "nilsonlinux/speedtest-meter", "oldirtty/color_picker" ]
 
     [[plugins.source]]
     enabled = true
@@ -543,6 +561,7 @@ font_family = "JetBrainsMono NF"
 input_borders = true
 launch_apps_as_systemd_services = false
 launch_apps_custom_command = ""
+niri_overview_close_on_launch_enabled = false
 niri_overview_type_to_launch_enabled = false
 offline_mode = false
 password_style = "default"
@@ -560,6 +579,8 @@ show_close_buttons = true
 show_location = true
 telemetry_enabled = false
 time_format = "{:%H:%M}"
+umbriel_audio_provider_enabled = false
+umbriel_overview_close_on_launch_enabled = false
 umbriel_overview_type_to_launch_enabled = false
 
     [shell.animation]
@@ -579,6 +600,7 @@ umbriel_overview_type_to_launch_enabled = false
     compact = false
     default_view = "recent"
     fetch_exchange_rates = true
+    ignore_mouse = false
     layout = "full"
     pinned = []
     provider_prefix = "/"
@@ -586,6 +608,7 @@ umbriel_overview_type_to_launch_enabled = false
     show_app_actions = false
     show_app_origin_indicator = true
     show_icons = true
+    show_navigation_labels = true
     show_session_button = true
     show_settings_button = true
     sort_by_usage = true
@@ -642,16 +665,23 @@ umbriel_overview_type_to_launch_enabled = false
     close_on_copy = true
     close_on_save = true
     confirm_region = true
+    copy_on_close = false
     copy_to_clipboard = true
     directory = "~/Pictures/screenshots"
     filename_pattern = ""
+    format = "png"
     freeze_screen = true
     pipe_command = ""
     pipe_to_command = false
+    quality = 90
+    region_border_width = 2.0
+    region_dim_opacity = 0.64999997615814209
     region_modifier = "none"
     remember_last_region = true
     save_to_file = true
-    show_cursor = false
+    show_cursor = true
+    show_region_dimensions = true
+    show_region_hint = true
     skip_annotate_on_copy_save = false
 
     [shell.session]
@@ -668,6 +698,7 @@ umbriel_overview_type_to_launch_enabled = false
         enabled = true
         glyph = ""
         label = ""
+        lockscreen_shortcut = ""
         shortcut = "1"
         variant = "default"
 
@@ -678,6 +709,7 @@ umbriel_overview_type_to_launch_enabled = false
         enabled = true
         glyph = ""
         label = ""
+        lockscreen_shortcut = ""
         shortcut = "2"
         variant = "default"
 
@@ -688,6 +720,7 @@ umbriel_overview_type_to_launch_enabled = false
         enabled = true
         glyph = ""
         label = ""
+        lockscreen_shortcut = ""
         shortcut = "3"
         variant = "default"
 
@@ -698,6 +731,7 @@ umbriel_overview_type_to_launch_enabled = false
         enabled = true
         glyph = ""
         label = ""
+        lockscreen_shortcut = ""
         shortcut = "4"
         variant = "default"
 
@@ -708,6 +742,7 @@ umbriel_overview_type_to_launch_enabled = false
         enabled = true
         glyph = ""
         label = ""
+        lockscreen_shortcut = ""
         shortcut = "5"
         variant = "destructive"
 
@@ -777,17 +812,17 @@ sync_color_scheme = true
 wallpaper_scheme = "m3-tonal-spot"
 
     [theme.templates]
-    builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "ghostty", "kcolorscheme", "qt" ]
-    community_ids = [ "blender", "neovim", "obsidian", "zed", "yazi" ]
+    builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "kcolorscheme", "qt" ]
+    community_ids = [ "telegram", "zapfast", "blender", "neovim", "obsidian", "zed", "yazi" ]
     enable_builtin_templates = true
     enable_community_templates = true
 
 [wallpaper]
-directory = "/home/yhtan/Pictures/wallpapers"
+directory = "/home/smol/pics/wallpapers"
 directory_dark = ""
 directory_light = ""
 edge_smoothness = 0.30000001192092896
-enabled = false
+enabled = true
 fill_color = ""
 fill_mode = "crop"
 per_monitor_directories = false
@@ -799,6 +834,7 @@ transition_on_startup = false
     enabled = false
     interval_seconds = 1800
     order = "random"
+    pause_on_fullscreen = false
     recursive = false
 
 [weather]
